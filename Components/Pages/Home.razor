@@ -1,4 +1,7 @@
-﻿@page "/"
+﻿@namespace GameStore.Frontend.Components.Pages
+@page "/"
+@using GameStore.Frontend.Clients
+@using GameStore.Frontend.Models
 @inject GamesClient Clients
 @attribute [StreamRendering]
 
@@ -55,7 +58,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        games = await Client.GetGamesAsync();
+        games = await Clients.GetGamesAsync();
     }
 
     private static string GameUrl(int id) => $"/editgame/{id}";
